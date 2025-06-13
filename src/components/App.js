@@ -1,13 +1,21 @@
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './Store';
+import Cart from './Cart';
+import Wishlist from './Wishlist';
+import CouponInput from './CouponInput';
 
-import React from "react";
-import './../styles/App.css';
-
-const App = () => {
+function App() {
   return (
-    <div>
-        {/* Do not remove the main div */}
-    </div>
-  )
+    <Provider store={store}>
+      <div>
+        <h1>Shopping Cart App</h1>
+        <CouponInput />
+        <Cart />
+        <Wishlist />
+      </div>
+    </Provider>
+  );
 }
 
-export default App
+export default App;
