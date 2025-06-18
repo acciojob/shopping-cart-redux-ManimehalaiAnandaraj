@@ -14,13 +14,13 @@ export default function ProductList() {
 
   return (
     <div>
-      <h2>Products</h2>
+      <h3>Product List</h3>
       {products.map(product => (
         <div key={product.id}>
           {product.name} - ${product.price}
-          <div className="custom-card card" key={product.id}>
+          <div className="custom-card" key={product.id}>
   <div className="card-body">
-    <h5 className="card-title">{product.name}</h5>
+    <h4 className="card-title">{product.name}</h4>
     <p className="card-text">${product.price}</p>
     <button className="btn btn-primary" onClick={() => dispatch(addToCart(product))}>Add to Cart</button>
     <button className="btn btn-warning" onClick={() => dispatch(toggleWishlist(product))}>Wishlist</button>

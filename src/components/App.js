@@ -11,10 +11,12 @@ function App() {
     <Provider store={store}>
       <div>
        <nav className="navbar navbar-expand-lg bg-light">
-  <div className="text-center w-100">Shopping Cart</div>
+  <div className="text-center w-100">
+    <h1>Shopping App</h1></div>
 </nav>
+  <ProductList />
         <Cart />
-        <ProductList />
+      
         <Wishlist />
         {/* <Coupon /> */} {/* Enable this only if Coupon.js exists */}
       </div>
