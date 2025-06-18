@@ -13,7 +13,9 @@ function Wishlist() {
       {wishlistItems.map(item => (
         <div key={item.id}>
           <p>{item.name}</p>
-          <button onClick={() => dispatch(removeFromWishlist(item.id))}>Remove</button>
+          <button onClick={() => dispatch(removeFromWishlist({ id: item.id }))}>
+            Remove
+          </button>
         </div>
       ))}
     </div>

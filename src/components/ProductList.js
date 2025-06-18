@@ -1,7 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/cartSlice';
-import { toggleWishlist } from '../redux/wishlistSlice';
+import Wishlist from './Wishlist';
+
+
+//import { toggleWishlist } from '../redux/wishlistSlice';
 
 const products = [
   { id: 1, name: 'Shoes', price: 50 },
