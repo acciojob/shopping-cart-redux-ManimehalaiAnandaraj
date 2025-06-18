@@ -4,6 +4,8 @@ import App from './components/App';
 import { Provider } from 'react-redux';
 import Wishlist from './components/Wishlist';
 import store from './redux/Store';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
  ReactDOM.render(
   <Provider store={store}>

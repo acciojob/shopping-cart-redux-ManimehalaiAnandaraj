@@ -10,7 +10,11 @@ function App() {
   return (
     <Provider store={store}>
       <div>
-        <h1>Shopping Cart App</h1>
+        <nav className="navbar navbar-expand-lg bg-light">
+  <div className="container-fluid">
+    <h1 className="text-center">Shopping Cart App</h1>
+  </div>
+</nav>
         <Cart />
         <ProductList />
         <Wishlist />
