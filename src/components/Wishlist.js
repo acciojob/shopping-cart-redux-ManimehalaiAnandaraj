@@ -1,23 +1,23 @@
+// components/Wishlist.js
 import React from 'react';
-import { useSelector, useDispatch } from  'react-redux';
-import { removeFromWishlist, addToCart } from './actions';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromWishlist } from '../redux/wishlistSlice';
 
-const Wishlist = () => {
-  const wishlist = useSelector(state => state.wishlist);
+function Wishlist() {
+  const wishlistItems = useSelector(state => state.wishlist.items);
   const dispatch = useDispatch();
 
   return (
     <div>
       <h2>Wishlist</h2>
-      {wishlist.map(item => (
+      {wishlistItems.map(item => (
         <div key={item.id}>
-          {item.name}
-          <button onClick={() => dispatch(addToCart(item))}>Add to Cart</button>
+          <p>{item.name}</p>
           <button onClick={() => dispatch(removeFromWishlist(item.id))}>Remove</button>
         </div>
       ))}
     </div>
   );
-};
+}
 
 export default Wishlist;

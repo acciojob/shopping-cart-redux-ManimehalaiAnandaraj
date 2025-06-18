@@ -1,31 +1,25 @@
+// components/Cart.js
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  removeFromCart, increaseQty, decreaseQty
-} from './actions';
+import { removeFromCart, increaseQuantity, decreaseQuantity } from '../redux/cartSlice';
 
-const Cart = () => {
-  const cart = useSelector(state => state.cart);
-  const discount = useSelector(state => state.discount);
+function Cart() {
+  const cartItems = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
-
-  const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-  const discountedTotal = total - (total * discount / 100);
 
   return (
     <div>
-      <h2>Cart</h2>
-      {cart.map(item => (
+      <h2>Shopping Cart</h2>
+      {cartItems.map(item => (
         <div key={item.id}>
-          {item.name} - ${item.price} x {item.qty}
-          <button onClick={() => dispatch(increaseQty(item.id))}>+</button>
-          <button onClick={() => dispatch(decreaseQty(item.id))}>-</button>
+          <p>{item.name} - ${item.price} x {item.quantity}</p>
+          <button onClick={() => dispatch(increaseQuantity(item.id))}>+</button>
+          <button onClick={() => dispatch(decreaseQuantity(item.id))}>-</button>
           <button onClick={() => dispatch(removeFromCart(item.id))}>Remove</button>
         </div>
       ))}
-      <p>Total: ${discountedTotal.toFixed(2)} ({discount}% off)</p>
     </div>
   );
-};
+}
 
 export default Cart;
