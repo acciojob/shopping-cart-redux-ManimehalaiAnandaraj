@@ -1,4 +1,3 @@
-// components/Cart.js
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, increaseQuantity, decreaseQuantity } from '../redux/cartSlice';
@@ -15,25 +14,9 @@ function Cart() {
           <div className="card-body">
             <h5 className="card-title">{item.name}</h5>
             <p className="card-text">${item.price}</p>
-            <p className="card-text">Quantity: {item.quantity}</p>
-            <button
-              className="btn btn-success"
-              onClick={() => dispatch(increaseQuantity(item.id))}
-            >
-              +
-            </button>
-            <button
-              className="btn btn-secondary"
-              onClick={() => dispatch(decreaseQuantity(item.id))}
-            >
-              -
-            </button>
-            <button
-              className="btn btn-danger"
-              onClick={() => dispatch(removeFromCart(item.id))}
-            >
-              Remove
-            </button>
+            <button className="btn btn-success" onClick={() => dispatch(increaseQuantity(item.id))}>+</button>
+            <button className="btn btn-secondary" onClick={() => dispatch(decreaseQuantity(item.id))}>-</button>
+            <button className="btn btn-danger" onClick={() => dispatch(removeFromCart(item.id))}>Remove</button>
           </div>
         </div>
       ))}
